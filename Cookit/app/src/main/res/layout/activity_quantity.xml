@@ -15,18 +15,10 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editText"
-        android:layout_above="@+id/button"
+        android:hint="          Quantity"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:hint="          Quantity" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:text="COOKIT !"
-        android:onClick="sendMessage" />
+        android:layout_marginTop="165dp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -36,7 +28,8 @@
         android:id="@+id/button2"
         android:layout_alignTop="@+id/editText"
         android:layout_toStartOf="@+id/editText"
-        android:layout_alignBottom="@+id/editText" />
+        android:layout_alignBottom="@+id/editText"
+        android:onClick="decVal" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -45,6 +38,24 @@
         android:text="+"
         android:id="@+id/button3"
         android:layout_alignBottom="@+id/editText"
-        android:layout_toEndOf="@+id/editText" />
+        android:layout_toEndOf="@+id/editText"
+        android:onClick="incVal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/editText"
+        android:layout_alignStart="@+id/button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="COOKIT !"
+        android:id="@+id/button"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:onClick="sendMessage" />
 
 </RelativeLayout>
