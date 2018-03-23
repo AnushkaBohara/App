@@ -26,18 +26,21 @@ public class Quantity extends AppCompatActivity {
         String message = editText.getText().toString();
         int num = Integer.parseInt(message);
 
-        if ((num > 0) || (num <= 10)){
+        if ((num > 0) && (num <= 10)){
             intent.putExtra(EXTRA_MESSAGE, message);
             Long tsLong = System.currentTimeMillis()/1000;
             String ts = tsLong.toString();
             mDatabase = FirebaseDatabase.getInstance().getReference();
-            mDatabase.child("rice").child(ts).child("Quantity").setValue(num);
+            mDatabase.child("devices").child("device1").child("current_order").child("dish").setValue("rice");
+            mDatabase.child("devices").child("device1").child("current_order").child("qty").setValue(num);
+            mDatabase.child("devices").child("device1").child("cooking").setValue("true");
+
 
             startActivity(intent);
         }
         else{
             TextView text2 = (TextView) findViewById(R.id.textView2);
-            text2.setText("Qunatity should be from 1 to 10");
+            text2.setText("Quantity should be from 1 to 10");
         }
 
 
@@ -46,7 +49,10 @@ public class Quantity extends AppCompatActivity {
     public void incVal(View view) {
         EditText editText = (EditText) findViewById(R.id.editText);
         String value = editText.getText().toString();
-        int qty = Integer.parseInt(value);
+        int qty = 0;
+        if (value!= "") {
+            qty = Integer.parseInt(value);
+        }
         if (qty < 10) {
             qty = qty + 1;
         }
@@ -55,7 +61,10 @@ public class Quantity extends AppCompatActivity {
     public void decVal(View view) {
         EditText editText = (EditText) findViewById(R.id.editText);
         String value = editText.getText().toString();
-        int qty = Integer.parseInt(value);
+        int qty = 0;
+        if (value!= "") {
+            qty = Integer.parseInt(value);
+        }
         if (qty > 1) {
             qty = qty - 1;
         }

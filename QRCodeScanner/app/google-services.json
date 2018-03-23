@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "296167777180",
+    "firebase_url": "https://medicine-dispenser-b37c9.firebaseio.com",
+    "project_id": "medicine-dispenser-b37c9",
+    "storage_bucket": "medicine-dispenser-b37c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296167777180:android:7695f7508fa65063",
+        "android_client_info": {
+          "package_name": "com.example.dell.myapplicationtarp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "296167777180-dggdebtdhgr25q6ssct9nff7ij7pp8nb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5DBlECGwK3wPH5PYFeuiXFH1KEprJFx0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296167777180:android:57deac3bb4b6b7c6",
+        "android_client_info": {
+          "package_name": "com.example.anushka.qrcodescanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "296167777180-dggdebtdhgr25q6ssct9nff7ij7pp8nb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5DBlECGwK3wPH5PYFeuiXFH1KEprJFx0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
