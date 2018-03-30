@@ -16,12 +16,15 @@ import com.google.zxing.integration.android.IntentResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.StringTokenizer;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     //View Objects
     private Button buttonScan;
-    private TextView textViewName, textViewDoctor, textViewMedicine;
+    private TextView textViewName, textViewAddress;
     private DatabaseReference mDatabase;
+    private String medicines;
 
     //qr code scanner object
     private IntentIntegrator qrScan;
@@ -31,17 +34,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         //View objects
         buttonScan = (Button) findViewById(R.id.buttonScan);
         textViewName = (TextView) findViewById(R.id.textViewName);
-        textViewDoctor = (TextView) findViewById(R.id.textViewDoctor);
-        textViewMedicine = (TextView) findViewById(R.id.textViewMedicine);
+        textViewAddress = (TextView) findViewById(R.id.textViewAddress);
+
         //intializing scan object
         qrScan = new IntentIntegrator(this);
 
         //attaching onclick listener
         buttonScan.setOnClickListener(this);
     }
+
     //Getting the scan results
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -54,15 +60,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //if qr contains data
                 try {
                     //converting the data to json
-
                     mDatabase = FirebaseDatabase.getInstance().getReference();
                     JSONObject obj = new JSONObject(result.getContents());
                     //setting values to textviews
+
                     mDatabase.child("devices").child("dev1").child("pending_request").setValue(true);
-                    mDatabase.child("devices").child("dev1").child("cur_pres").setValue(obj.getString("Medicines"));
-                    textViewName.setText(obj.getString("Patient Name"));
-                    textViewDoctor.setText(obj.getString("Doctor ID"));
-                    textViewMedicine.setText(obj.getString("Medicines"));
+                    mDatabase.child("devices").child("dev1").child("cur_pres").child("patID").setValue(obj.getString("pat"));
+                    mDatabase.child("devices").child("dev1").child("cur_pres").child("presID").setValue(obj.getString("pres"));
+                    medicines = obj.getString("med");
+                    StringTokenizer st = new StringTokenizer(medicines, ":,");
+                    while (st.hasMoreTokens()) {
+                        mDatabase.child("devices").child("dev1").child("cur_pres").child("Medicines").child(st.nextToken()).child("qty").setValue(st.nextToken());
+                    }
+                    textViewName.setText(obj.getString("pat"));
+                    textViewAddress.setText(obj.getString("pres"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                     //if control comes here

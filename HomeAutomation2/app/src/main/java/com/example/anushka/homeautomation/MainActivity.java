@@ -77,16 +77,12 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         l1Ref = firebaseDatabase.getReference("light1");
         l2Ref = firebaseDatabase.getReference("light2");
         f1Ref = firebaseDatabase.getReference("fan1");
         camRef = firebaseDatabase.getReference("cam");
         camLogRef = firebaseDatabase.getReference("camLogs");
-        if (firebaseAuth.getCurrentUser() == null) {
-            openLoginActivity();
-        }
         enableManual();
         fanSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override

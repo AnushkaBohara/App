@@ -27,13 +27,13 @@ public class Quantity extends AppCompatActivity {
         int num = Integer.parseInt(message);
 
         if ((num > 0) && (num <= 10)){
-            intent.putExtra(EXTRA_MESSAGE, message);
+            intent.putExtra(EXTRA_MESSAGE, "rice for " + message + " people");
             Long tsLong = System.currentTimeMillis()/1000;
             String ts = tsLong.toString();
             mDatabase = FirebaseDatabase.getInstance().getReference();
             mDatabase.child("devices").child("device1").child("current_order").child("dish").setValue("rice");
             mDatabase.child("devices").child("device1").child("current_order").child("qty").setValue(num);
-            mDatabase.child("devices").child("device1").child("cooking").setValue("true");
+            mDatabase.child("devices").child("device1").child("pending_request").setValue("true");
 
 
             startActivity(intent);

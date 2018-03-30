@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Patient Name" />
+            android:text="Patient ID" />
 
         <TextView
             android:id="@+id/textViewName"
@@ -31,22 +31,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Doctor ID" />
+            android:text="Prescription ID" />
 
         <TextView
-            android:id="@+id/textViewDoctor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="xyz"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Medicines" />
-
-        <TextView
-            android:id="@+id/textViewMedicine"
+            android:id="@+id/textViewAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="xyz"

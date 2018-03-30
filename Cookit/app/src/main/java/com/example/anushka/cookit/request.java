@@ -18,6 +18,6 @@ public class request extends AppCompatActivity {
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = (TextView) findViewById(R.id.textView);
-        textView.setText("Cooking request sent for rice for " + message + " people.");
+        textView.setText("Cooking request sent for " + message);
     }
 }

@@ -17,7 +17,9 @@
         </activity>
         <activity android:name=".Quantity" />
         <activity android:name=".request" />
-        <activity android:name=".selectActivity"></activity>
+        <activity android:name=".selectActivity" />
+        <activity android:name=".QuantityDal" />
+        <activity android:name=".QuantityBoth"></activity>
     </application>
 
 </manifest>
